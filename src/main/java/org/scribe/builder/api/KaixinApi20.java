@@ -22,7 +22,7 @@ public class KaixinApi20 extends DefaultApi20
   @Override
   public String getAccessTokenEndpoint()
   {
-    return "https://api.kaixin001.com/oauth2/access_token?grant_type=authorization_code";
+    return "https://api.kaixin001.com/oauth2/access_token";
   }
 
   @Override
@@ -37,5 +37,11 @@ public class KaixinApi20 extends DefaultApi20
     {
       return String.format(AUTHORIZE_URL, config.getApiKey(), OAuthEncoder.encode(config.getCallback()));
     }
+  }
+
+  @Override
+  public String getGrantType() 
+  {
+    return "authorization_code";
   }
 }

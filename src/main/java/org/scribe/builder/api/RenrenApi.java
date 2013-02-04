@@ -21,7 +21,7 @@ public class RenrenApi extends DefaultApi20
   @Override
   public String getAccessTokenEndpoint()
   {
-    return "https://graph.renren.com/oauth/token?grant_type=authorization_code";
+    return "https://graph.renren.com/oauth/token";
   }
 
   @Override
@@ -36,5 +36,11 @@ public class RenrenApi extends DefaultApi20
     {
       return String.format(AUTHORIZE_URL, config.getApiKey(), OAuthEncoder.encode(config.getCallback()));
     }
+  }
+
+  @Override
+  public String getGrantType() 
+  {
+    return "authorization_code";
   }
 }

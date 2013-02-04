@@ -13,7 +13,7 @@ public class ConstantContactApi2 extends DefaultApi20
   @Override
   public String getAccessTokenEndpoint()
   {
-    return "https://oauth2.constantcontact.com/oauth2/oauth/token?grant_type=authorization_code";
+    return "https://oauth2.constantcontact.com/oauth2/oauth/token";
   }
 
   @Override
@@ -51,5 +51,11 @@ public class ConstantContactApi2 extends DefaultApi20
         }
       }
     };
+  }
+
+  @Override
+  public String getGrantType() 
+  {
+    return "authorization_code";
   }
 }

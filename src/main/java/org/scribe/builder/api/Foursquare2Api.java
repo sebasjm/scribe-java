@@ -15,9 +15,10 @@ public class Foursquare2Api extends DefaultApi20
   }
   
   @Override
-	public String getGrantType() {
-		return "authorization_code";
-	}
+  public String getGrantType() 
+  {
+    return "authorization_code";
+  }
 
   @Override
   public String getAuthorizationUrl(OAuthConfig config)
