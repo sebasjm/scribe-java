@@ -5,6 +5,7 @@ import org.scribe.extractors.JsonTokenExtractor;
 import org.scribe.model.OAuthConfig;
 import org.scribe.model.Verb;
 import org.scribe.utils.OAuthEncoder;
+import org.scribe.utils.Preconditions;
 
 public class Google2Api extends DefaultApi20 {
 
@@ -32,6 +33,7 @@ public class Google2Api extends DefaultApi20 {
 
 	@Override
 	public String getAuthorizationUrl(OAuthConfig config) {
+                Preconditions.checkNotNull(config.getScope(), "Must provide a valid scope. Google doesnt support empty scope.");
 		return String.format(AUTHORIZE_URL, OAuthEncoder.encode(config.getScope()),OAuthEncoder.encode(config.getCallback()),config.getApiKey());
 	}
 
